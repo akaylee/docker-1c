@@ -28,8 +28,8 @@ RUN dpkg --install /tmp/1c-enterprise-$PLATFORM_VERSION-common_${SERVER_VERSION}
   && mkdir --parents /var/log/1C /home/usr1cv8/.1cv8/1C/1cv8/conf \
   && chown --recursive usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8
 
-COPY container/docker-entrypoint.sh /
-COPY container/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
+COPY src/docker-entrypoint.sh /
+COPY src/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
