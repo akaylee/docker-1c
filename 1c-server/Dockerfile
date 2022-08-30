@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu
 
 ENV GOSU_VERSION 1.7
 RUN apt-get -qq update \
