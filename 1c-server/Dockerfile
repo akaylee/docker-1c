@@ -20,7 +20,6 @@ ENV LANG ru_RU.utf8
 
 ADD ./src/*.run /tmp/
 COPY ./src/docker-entrypoint.sh ./
-COPY ./src/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 COPY ./src/ras-srv1cv83.service /etc/systemd/system/
 
 ENV PLATFORM_VERSION 8.3.20.1996
@@ -29,6 +28,8 @@ RUN ./tmp/setup-full-$PLATFORM_VERSION-x86_64.run --mode unattended --enable-com
   && chown --recursive usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8 \
   && chmod +x /docker-entrypoint.sh \
   && systemctl enable ras-srv1cv83
+
+COPY ./src/logcfg.xml /home/usr1cv8/.1cv8/1C/1cv8/conf
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
