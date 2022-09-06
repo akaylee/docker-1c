@@ -10,7 +10,7 @@
 
   Type=forking
 
-  WorkingDirectory=/opt/1cv8/x86_64/8.3.16.1973/
+  WorkingDirectory=/opt/1cv8/x86_64/8.3.20.1996/
 
   User=usr1cv8
 
@@ -18,7 +18,7 @@
 
   OOMScoreAdjust=-100
 
-  ExecStart=/opt/1cv8/x86_64/8.3.16.1973/ras  cluster --daemon  -p 1545 127.0.0.1:1540
+  ExecStart=/opt/1cv8/x86_64/8.3.20.1996/ras  cluster --daemon  -p 1545 127.0.0.1:1540
 
   ExecReload=/bin/kill -s HUP  $MAINPID
 
