@@ -1,0 +1,10 @@
+<?xml version=»1.0? encoding=»UTF-8??>
+<config xmlns=»http://v8.1c.ru/v8/tech-log»>
+<dump create=»true» location=»C:\dumps» type=»3?/>
+<log history=»72? location=»C:\log\2014-01-01?>
+<property name=»all»/>
+<event>
+<eq property=»name» value=»excp»/>
+</event>
+</log>
+</config>
