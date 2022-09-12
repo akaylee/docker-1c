@@ -19,7 +19,7 @@ RUN localedef --inputfile ru_RU --force --charmap UTF-8 --alias-file /usr/share/
 ENV LANG ru_RU.utf8
 
 RUN wget http://10.3.80.50/1C_distro/server64_8_3_20_1996.tar.gz \
-   && tar -zxvf server64_8_3_20_1996.tar.gz .
+   && tar -zxvf server64_8_3_20_1996.tar.gz && rm -rf *.tar.gz
 ADD *.run /tmp/
 COPY ./src/docker-entrypoint.sh ./
 
