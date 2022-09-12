@@ -18,7 +18,7 @@ RUN apt-get -qq update \
 RUN localedef --inputfile ru_RU --force --charmap UTF-8 --alias-file /usr/share/locale/locale.alias ru_RU.UTF-8
 ENV LANG ru_RU.utf8
 
-RUN cd ./src && wget http://10.3.80.50/1C_distro/server64_8_3_20_1996.tar.gz
+RUN wget http://10.3.80.50/1C_distro/server64_8_3_20_1996.tar.gz
 ADD ./src/*.run /tmp/
 COPY ./src/docker-entrypoint.sh ./
 
