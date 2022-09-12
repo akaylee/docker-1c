@@ -20,7 +20,6 @@ ENV LANG ru_RU.utf8
 
 ADD ./src/*.run /tmp/
 COPY ./src/docker-entrypoint.sh ./
-COPY ./src/ras-srv1cv83.service /etc/systemd/system/
 
 ENV PLATFORM_VERSION 8.3.20.1996
 RUN ./tmp/setup-full-$PLATFORM_VERSION-x86_64.run --mode unattended --enable-components server --disable-components client_thin,client_thin_fib,ws,server_admin,az,ar,hy,bg,hu,el,vi,ka,kk,zh,it,es,lv,lt,de,pl,ro,tr,tk,fr,uk,config_storage_server,additional_admin_functions,liberica_jre,integrity_monitoring,client_full \
