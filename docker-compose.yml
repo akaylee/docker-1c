@@ -5,7 +5,8 @@ services:
     1c-server:
       # environment:
       #   - PLATFORM_VERSION=${PLATFORM_VERSION}
-      image: 10.3.80.70:5000/1c-server:8.3.20.1996
+      private:
+        image: 10.3.80.70:5000/1c-server:8.3.20.1996
       # build:
       #   context: ./1c-server
       ports:
