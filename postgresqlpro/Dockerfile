@@ -31,7 +31,7 @@ ENV PGDATA /data
 
 RUN wget https://repo.postgrespro.ru/pg1c-14/keys/pgpro-repo-add.sh \
    && sh pgpro-repo-add.sh \
-   && apt-get install postgrespro-1c-14
+   && apt-get install --yes postgrespro-1c-14
 
 RUN mkdir --parent /var/run/postgresql "$PGDATA" /docker-entrypoint-initdb.d \
   && chown --recursive postgres:postgres /var/run/postgresql "$PGDATA" \
