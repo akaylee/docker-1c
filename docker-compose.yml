@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-
  1c-server:
-    image: 10.3.80.70:5000/1c-server:8.3.20.1996
+    image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
+    container_name: 1c-server
     # build:
     #   context: ./1c-server
     environment:
