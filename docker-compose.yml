@@ -6,8 +6,8 @@ services:
       environment:
         - PLATFORM_VERSION=${PLATFORM_VERSION}
       image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
-      build:
-        context: ./1c-server
+      # build:
+      #   context: ./1c-server
       ports:
         - '1540-1541:1540-1541'
         - '1560-1591:1560-1591'
