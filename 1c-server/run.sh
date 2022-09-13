@@ -1,7 +1,7 @@
 #!/bin/sh
 
-docker pull 10.3.80.70:5000/1c-server:8.3.20.1996
-docker run --name 1c-server \
+# docker pull 10.3.80.70:5000/1c-server:8.3.20.1996
+docker run --name 10.3.80.70:5000/1c-server \
   --net host \
   --detach \
   --restart=always \
