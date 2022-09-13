@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
 
-    1c-server:
+    # 1c-server:
       # environment:
       #   - PLATFORM_VERSION=${PLATFORM_VERSION}
       private:
