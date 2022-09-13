@@ -3,10 +3,9 @@ version: "3.7"
 services:
 
     1c-server:
-      private:
-        image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
       environment:
         - PLATFORM_VERSION=${PLATFORM_VERSION}
+      image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
       build:
         context: ./1c-server
       ports:
