@@ -45,13 +45,12 @@ services:
         published: 5432
         protocol: tcp
         mode: host
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints: [node.labels.dbrole == "master" ]
+    # deploy:
+    #   mode: replicated
+    #   replicas: 1
+    #   placement:
+    #     constraints: [node.labels.dbrole == "master" ]
     volumes:
-      - pg-data-master:/var/lib/pgpro/1c-14/main
-      - pg-v81cdata-master:/var/lib/pgpro/1c-14/v81c_data
-      - pg-v81cindex-master:/var/lib/pgpro/1c-14/v81c_index
-      - pg-log-master:/var/log/postgresql
+      - pg-data:/var/lib/postgresql
+      - pg-run:/run/postgresql
+      - pg-log:/var/log/postgresql
