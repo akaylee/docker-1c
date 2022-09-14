@@ -23,6 +23,7 @@ RUN wget https://repo.postgrespro.ru/pg1c-14/keys/pgpro-repo-add.sh \
 
 # COPY runtime/ ${PG_APP_HOME}/
 COPY src/docker-entrypoint.sh docker-entrypoint.sh
+COPY src/run/ ${PG_APP_HOME}/
 RUN chmod 755 docker-entrypoint.sh
 
 EXPOSE 5432/tcp
