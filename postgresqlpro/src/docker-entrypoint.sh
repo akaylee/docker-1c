@@ -18,7 +18,7 @@ if [[ -z ${1} ]]; then
   map_uidgid
 
   create_datadir
-  create_certdir
+#   create_certdir
   create_logdir
   create_rundir
 
