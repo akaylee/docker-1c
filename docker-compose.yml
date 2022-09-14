@@ -25,7 +25,7 @@ services:
 #       - /etc/localtime:/etc/localtime:ro
 
  postgres:
-    image: 10.3.80.70:5000/postgrespro-1c:$PLATFORM_VERSION
+    image: 10.3.80.70:5000/postgrespro-1c:$PG_VERSION
     # tmpfs:
     #   - /var/lib/pgpro/1c-11/temptblspc
     # networks:
