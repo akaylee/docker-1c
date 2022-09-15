@@ -5,7 +5,7 @@ services:
     image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
     container_name: 1c-server
     networks:
-      - hostnet: {}
+      hostnet: {}
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     depends_on:
