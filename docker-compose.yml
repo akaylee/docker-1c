@@ -9,12 +9,12 @@ services:
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     ports:
-      - target: 1540-1541:1540-1541
-        published: 1540-1541:1540-1541
+      - target: '1540-1541:1540-1541'
+        published: '1540-1541:1540-1541'
         protocol: tcp
         mode: host
-      - target: 1560-1591:1560-1591
-        published: 1560-1591:1560-1591
+      - target: '1560-1591:1560-1591'
+        published: '1560-1591:1560-1591'
         protocol: tcp
         mode: host
     # network_mode: "host"
