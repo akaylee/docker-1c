@@ -3,11 +3,11 @@ FROM ubuntu:20.04
 ENV PG_APP_HOME="/etc/docker-postgresql"\
     PG_VERSION=14 \
     PG_USER=postgres \
-    PG_HOME=/var/lib/postgresql \
+    PG_HOME=/var/lib/pgpro \
     PG_RUNDIR=/run/postgresql \
     PG_LOGDIR=/var/log/postgresql
 
-ENV PG_BINDIR=/usr/lib/postgresql/${PG_VERSION}/bin \
+ENV PG_BINDIR=/opt/pgpro/1c-${PG_VERSION}/bin \
     PG_DATADIR=${PG_HOME}/${PG_VERSION}/main
 
 RUN apt-get update && apt-get install -y sudo locales wget  \
