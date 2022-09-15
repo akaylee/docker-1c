@@ -8,9 +8,9 @@ services:
     container_name: 1c-server
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
-    # ports:
-    #   - '1540-1541:1540-1541'
-    #   - '1560-1591:1560-1591'
+    ports:
+      - '1540-1541:1540-1541'
+      - '1560-1591:1560-1591'
     network_mode: host
     restart: always
     volumes:
