@@ -1,12 +1,11 @@
 version: '3'
 
 services:
- 1c-server:
-    build:
-      context: ./1c-server
-      network: host
-    # image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
+  1c-server:
+    image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
     container_name: 1c-server
+    networks:
+      - hostnet: {}
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     depends_on:
@@ -17,7 +16,7 @@ services:
       - ./1c-server-logs:/var/log/1C
       - /etc/localtime:/etc/localtime:ro
 
- postgres:
+  postgres:
     image: 10.3.80.70:5000/postgrespro-1c:$PG_VERSION
     container_name: postgrespro-1c
     env_file:
@@ -34,3 +33,8 @@ services:
     #     constraints: [node.labels.dbrole == "master" ]
     volumes:
       - /srv/docker/postgresql:/var/lib/postgresql
+
+networks:
+  hostnet:
+   external: true
+   name: host
