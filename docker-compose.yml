@@ -1,4 +1,4 @@
-version: "2"
+version: '3'
 
 services:
  1c-server:
@@ -9,8 +9,8 @@ services:
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     ports:
-      - 1540-1541:1540-1541
-      - 1560-1591:1560-1591
+      - 10.3.80.70:1540-1541:1540-1541
+      - 10.3.80.70:1560-1591:1560-1591
     restart: always
     volumes:
       - ./1c-server-home:/home/usr1cv8
