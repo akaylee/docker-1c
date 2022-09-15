@@ -10,8 +10,8 @@ services:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     network_mode: bridge
     ports:
-      - localhost:1540-1541:1540-1541
-      - localhost:1560-1591:1560-1591
+      - 127.0.0.1:1540-1541:1540-1541
+      - 127.0.0.1:1560-1591:1560-1591
     restart: always
     volumes:
       - ./1c-server-home:/home/usr1cv8
