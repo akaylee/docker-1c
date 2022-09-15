@@ -4,7 +4,9 @@ services:
   1c-server:
     image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
     container_name: 1c-server
-    network_mode: "host"
+    ports:
+      - 1540-1541:1540-1541
+      - 1560-1591:1560-1591
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     depends_on:
