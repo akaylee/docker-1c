@@ -2,10 +2,10 @@ version: "3.7"
 
 services:
  1c-server:
-    image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
-    container_name: 1c-server
     # build:
     #   context: ./1c-server
+    image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
+    container_name: 1c-server
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     # ports:
@@ -18,14 +18,7 @@ services:
     #     protocol: tcp
     #     mode: host
     network_mode: "host"
-    # depends_on:
-    #   - test-postgres
     restart: always
-    deploy:
-      restart_policy:
-        condition: any
-        delay: 5s
-        window: 120s
     volumes:
       - ./1c-server-home:/home/usr1cv8
       - ./1c-server-logs:/var/log/1C
@@ -34,10 +27,6 @@ services:
  postgres:
     image: 10.3.80.70:5000/postgrespro-1c:$PG_VERSION
     container_name: postgrespro-1c
-    # tmpfs:
-    #   - /var/lib/pgpro/1c-11/temptblspc
-    # networks:
-    #   - pgdb_network
     env_file:
       ./.env
     ports:
