@@ -5,8 +5,14 @@ services:
     image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
     container_name: 1c-server
     ports:
-      - '1540-1541'
-      - '1560-1591'
+      - target: "1540-1541"
+        published: "1540-1541"
+        protocol: tcp
+        mode: host
+      - target: "1560-1591"
+        published: "1560-1591"
+        protocol: tcp
+        mode: host
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     depends_on:
