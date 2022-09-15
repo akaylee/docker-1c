@@ -9,8 +9,8 @@ services:
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     ports:
-      - '1540-1541:1540-1541'
-      - '1560-1591:1560-1591'
+      - '10.3.80.70:1540-1541:1540-1541'
+      - '10.3.80.70:1560-1591:1560-1591'
     network_mode: bridge
     restart: always
     volumes:
