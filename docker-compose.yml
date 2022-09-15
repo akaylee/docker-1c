@@ -11,7 +11,6 @@ services:
     ports:
       - '10.3.80.70:1540-1541:1540-1541'
       - '10.3.80.70:1560-1591:1560-1591'
-    network_mode: bridge
     restart: always
     volumes:
       - ./1c-server-home:/home/usr1cv8
