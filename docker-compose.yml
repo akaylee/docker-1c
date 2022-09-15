@@ -8,10 +8,11 @@ services:
     container_name: 1c-server
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
-    # network_mode: bridge
-    expose:
-      - "1540-1541"
-      - "1560-1591"
+    ports:
+      - "10.3.80.70:1540-1541:1540-1541"
+      - "10.3.80.70:1560-1591:1560-1591"
+    depends_on:
+      - postgres
     restart: always
     volumes:
       - ./1c-server-home:/home/usr1cv8
