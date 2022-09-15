@@ -9,14 +9,8 @@ services:
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
     ports:
-      - target: '1540-1541:1540-1541'
-        published: '1540-1541:1540-1541'
-        protocol: tcp
-        mode: host
-      - target: '1560-1591:1560-1591'
-        published: '1560-1591:1560-1591'
-        protocol: tcp
-        mode: host
+      - '1540-1541:1540-1541'
+      - '1560-1591:1560-1591'
     # network_mode: "host"
     restart: always
     volumes:
