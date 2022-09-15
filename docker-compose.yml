@@ -8,16 +8,16 @@ services:
     container_name: 1c-server
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
-    # ports:
-    #   - target: 1540-1541:1540-1541
-    #     published: 1540-1541:1540-1541
-    #     protocol: tcp
-    #     mode: host
-    #   - target: 1560-1591:1560-1591
-    #     published: 1560-1591:1560-1591
-    #     protocol: tcp
-    #     mode: host
-    network_mode: "host"
+    ports:
+      - target: 1540-1541:1540-1541
+        published: 1540-1541:1540-1541
+        protocol: tcp
+        mode: host
+      - target: 1560-1591:1560-1591
+        published: 1560-1591:1560-1591
+        protocol: tcp
+        mode: host
+    # network_mode: "host"
     restart: always
     volumes:
       - ./1c-server-home:/home/usr1cv8
