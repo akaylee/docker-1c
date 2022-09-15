@@ -1,28 +1,28 @@
 version: "3.7"
 
 services:
-#  1c-server:
-#     image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
-#     container_name: 1c-server
-#     # build:
-#     #   context: ./1c-server
-#     environment:
-#       - PLATFORM_VERSION=${PLATFORM_VERSION}
-#     ports:
-#       - '1540-1541:1540-1541'
-#       - '1560-1591:1560-1591'
-#     # depends_on:
-#     #   - test-postgres
-#     restart: always
-#     deploy:
-#       restart_policy:
-#         condition: any
-#         delay: 5s
-#         window: 120s
-#     volumes:
-#       - ./1c-server-home:/home/usr1cv8
-#       - ./1c-server-logs:/var/log/1C
-#       - /etc/localtime:/etc/localtime:ro
+ 1c-server:
+    image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
+    container_name: 1c-server
+    # build:
+    #   context: ./1c-server
+    environment:
+      - PLATFORM_VERSION=${PLATFORM_VERSION}
+    ports:
+      - '1540-1541:1540-1541'
+      - '1560-1591:1560-1591'
+    # depends_on:
+    #   - test-postgres
+    restart: always
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+        window: 120s
+    volumes:
+      - ./1c-server-home:/home/usr1cv8
+      - ./1c-server-logs:/var/log/1C
+      - /etc/localtime:/etc/localtime:ro
 
  postgres:
     image: 10.3.80.70:5000/postgrespro-1c:$PG_VERSION
