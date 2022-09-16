@@ -15,6 +15,8 @@ RUN apt-get -qq update \
 RUN localedef --inputfile ru_RU --force --charmap UTF-8 --alias-file /usr/share/locale/locale.alias ru_RU.UTF-8
 ENV LANG ru_RU.utf8
 
+ENV PATH /usr/lib/postgresql/$SERVER_VERSION/bin:$PATH
+ENV PGDATA /data
 RUN wget https://repo.postgrespro.ru/pg1c-14/keys/pgpro-repo-add.sh \
    && sh pgpro-repo-add.sh \
    && apt-get install --yes postgrespro-1c-14 \
