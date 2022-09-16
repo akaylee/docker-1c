@@ -12,8 +12,8 @@ services:
     #   - 1560-1591:1560-1591
     environment:
       - PLATFORM_VERSION=${PLATFORM_VERSION}
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     # restart: always
     volumes:
       - /containers/1c-server-home:/home/usr1cv8
