@@ -28,6 +28,7 @@ RUN mkdir --parent /var/run/postgresql "$PGDATA" /docker-entrypoint-initdb.d \
 
 COPY src/docker-entrypoint.sh /
 COPY src/postgresql.conf.sh /docker-entrypoint-initdb.d
+RUN chmod 755 docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
