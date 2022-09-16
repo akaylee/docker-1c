@@ -4,6 +4,9 @@ services:
   1c-server:
     image: 10.3.80.70:5000/1c-server:$PLATFORM_VERSION
     container_name: 1c-server
+    network_mode: host
+    stdin_open: true
+    tty: true
     # ports:
     #   - 1540-1541:1540-1541
     #   - 1560-1591:1560-1591
@@ -13,24 +16,24 @@ services:
       - postgres
     # restart: always
     volumes:
-      - ./1c-server-home:/home/usr1cv8
-      - ./1c-server-logs:/var/log/1C
+      - /containers/1c-server-home:/home/usr1cv8
+      - /containers/1c-server-logs:/var/log/1C
       - /etc/localtime:/etc/localtime:ro
 
-  postgres:
-    image: 10.3.80.70:5000/postgrespro-1c:$PG_VERSION
-    container_name: postgrespro-1c
-    env_file:
-      ./.env
-    ports:
-      - target: 5432
-        published: 5432
-        protocol: tcp
-        mode: host
-    # deploy:
-    #   mode: replicated
-    #   replicas: 1
-    #   placement:
-    #     constraints: [node.labels.dbrole == "master" ]
-    volumes:
-      - /srv/docker/postgresql:/var/lib/postgresql
+  # postgres:
+  #   image: 10.3.80.70:5000/postgrespro-1c:$PG_VERSION
+  #   container_name: postgrespro-1c
+  #   env_file:
+  #     ./.env
+  #   ports:
+  #     - target: 5432
+  #       published: 5432
+  #       protocol: tcp
+  #       mode: host
+  #   # deploy:
+  #   #   mode: replicated
+  #   #   replicas: 1
+  #   #   placement:
+  #   #     constraints: [node.labels.dbrole == "master" ]
+  #   volumes:
+  #     - /srv/docker/postgresql:/var/lib/postgresql
