@@ -9,21 +9,18 @@ RUN apt-get -qq update \
   && apt-get -qq install --yes --no-install-recommends xfonts-utils cabextract \
   && wget --quiet --output-document /tmp/ttf-mscorefonts-installer_3.6_all.deb http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb \
   && dpkg --install /tmp/ttf-mscorefonts-installer_3.6_all.deb 2> /dev/null \
-  && rm /tmp/ttf-mscorefonts-installer_3.6_all.deb \
-  && `#----- Install gosu -----` \
-  && wget --quiet --output-document /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
-  && chmod +x /usr/local/bin/gosu \
-  && gosu nobody true
+  && rm /tmp/ttf-mscorefonts-installer_3.6_all.deb
 
 RUN localedef --inputfile ru_RU --force --charmap UTF-8 --alias-file /usr/share/locale/locale.alias ru_RU.UTF-8
 ENV LANG ru_RU.utf8
 
-ADD ./src/*.deb /tmp/
 COPY ./src/docker-entrypoint.sh ./
 
 ENV PLATFORM_VERSION 8.3.19.1522
 ENV SERVER_VERSION 8.3.19-1522
-RUN dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-common_${SERVER_VERSION}_amd64.deb 2> /dev/null \
+RUN wget http://10.3.80.50/1C_distro/deb64_$PLATFORM_VERSION.tar.gz -P /tmp/ \
+  && tar -zxvf /tmp/deb64_$PLATFORM_VERSION.tar.gz -C /tmp/ \
+  && dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-common_${SERVER_VERSION}_amd64.deb 2> /dev/null \
   && dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-server_${SERVER_VERSION}_amd64.deb 2> /dev/null \
   && rm /tmp/*.deb \
   && mkdir -p /var/log/1C /home/usr1cv8/.1cv8/1C/1cv8/conf \
