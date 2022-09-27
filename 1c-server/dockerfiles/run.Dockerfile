@@ -15,6 +15,8 @@ ENV LANG ru_RU.utf8
 
 COPY ./src/docker-entrypoint.sh ./
 
+ENV PLATFORM_VERSION 8.3.20.1996
+ENV SERVER_VERSION 8.3.20-1996
 RUN wget http://10.3.80.50/1C_distro/server64_$PLATFORM_VERSION.tar.gz -P /tmp/ \
   && tar -zxvf /tmp/server64_$PLATFORM_VERSION.tar.gz -C /tmp/\
   && ./tmp/setup-full-$SERVER_VERSION-x86_64.run --mode unattended --enable-components server --disable-components client_thin,client_thin_fib,ws,server_admin,az,ar,hy,bg,hu,el,vi,ka,kk,zh,it,es,lv,lt,de,pl,ro,tr,tk,fr,uk,config_storage_server,additional_admin_functions,liberica_jre,integrity_monitoring,client_full \

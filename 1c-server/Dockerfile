@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu
 
 RUN apt-get -qq update \
   && apt-get -qq install --yes --no-install-recommends ca-certificates wget locales \
@@ -11,14 +11,17 @@ RUN apt-get -qq update \
   && rm /tmp/ttf-mscorefonts-installer_3.6_all.deb
 
 RUN localedef --inputfile ru_RU --force --charmap UTF-8 --alias-file /usr/share/locale/locale.alias ru_RU.UTF-8
-ENV LANG ru_RU.utf
+ENV LANG ru_RU.utf8
 
 COPY ./src/docker-entrypoint.sh ./
 
-ENV PLATFORM_VERSION 8_3_19_1522
+ENV PLATFORM_VERSION 8.3.19.1522
+ENV SERVER_VERSION 8.3.19-1522
 RUN wget http://10.3.80.50/1C_distro/deb64_$PLATFORM_VERSION.tar.gz -P /tmp/ \
-  && tar -zxvf /tmp/server64_$PLATFORM_VERSION.tar.gz -C /tmp/\
-  && ./tmp/setup-full-$SERVER_VERSION-x86_64.run --mode unattended --enable-components server --disable-components client_thin,client_thin_fib,ws,server_admin,az,ar,hy,bg,hu,el,vi,ka,kk,zh,it,es,lv,lt,de,pl,ro,tr,tk,fr,uk,config_storage_server,additional_admin_functions,liberica_jre,integrity_monitoring,client_full \
+  && tar -zxvf /tmp/deb64_$PLATFORM_VERSION.tar.gz -C /tmp/ \
+  && dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-common_${SERVER_VERSION}_amd64.deb 2> /dev/null \
+  && dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-server_${SERVER_VERSION}_amd64.deb 2> /dev/null \
+  && rm /tmp/*.deb \
   && mkdir -p /var/log/1C /home/usr1cv8/.1cv8/1C/1cv8/conf \
   && chown --recursive usr1cv8:grp1cv8 /var/log/1C /home/usr1cv8 \
   && chmod +x /docker-entrypoint.sh
