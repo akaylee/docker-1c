@@ -15,11 +15,11 @@ ENV LANG ru_RU.utf8
 
 COPY ./src/docker-entrypoint.sh ./
 
-ENV PLATFORM_VERSION 8_3_19_1522
+ENV PACKAGE_VERSION 8_3_19_1522
 ENV PLATFORM_VERSION 8.3.19.1522
 ENV SERVER_VERSION 8.3.19-1522
 RUN wget http://10.3.80.50/1C_distro/deb64_$PACKAGE_VERSION.tar.gz -P /tmp/ \
-  && tar -zxvf /tmp/deb64_$PLATFORM_VERSION.tar.gz -C /tmp/ \
+  && tar -zxvf /tmp/deb64_$PACKAGE_VERSION.tar.gz -C /tmp/ \
   && dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-common_${SERVER_VERSION}_amd64.deb 2> /dev/null \
   && dpkg -i /tmp/1c-enterprise-$PLATFORM_VERSION-server_${SERVER_VERSION}_amd64.deb 2> /dev/null \
   && rm /tmp/*.deb \
