@@ -5,7 +5,7 @@ Original repo: https://github.com/alexanderfefelov/docker-1c-server
 *with some insertions (images are being pushed/pulled using local Docker registry)*
 
 Build 1C server image:
-1. Copy and rename correct Dockerfile from dockerfiles/:
+1. Copy and rename correct Dockerfile (depending on uploaded 1C distro version from local repo) from dockerfiles/:
 > cp -f dockerfiles/deb.Dockerfile Dockerfile
 
 2. Edit .env file
@@ -27,3 +27,7 @@ Original repo: https://github.com/alexanderfefelov/docker-postgrespro-1c
 ---------------
 
 Versions for linux and windows using official Microsoft images
+
+---------------
+## 1C-server in Windows container
+Windows containers are overall heavy and weird, so it's preferable to work around Linux solutions. I'm still working on MSSQL+1C-server-win containerized 
