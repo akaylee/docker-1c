@@ -5,7 +5,9 @@ Original repo: https://github.com/alexanderfefelov/docker-1c-server
 *with some insertions (images are being pushed/pulled using local Docker registry)*
 
 Build 1C server image:
-1. Copy and rename correct Dockerfile (depending on uploaded 1C distro version from local repo) from dockerfiles/:
+
+1. Copy and rename correct Dockerfile (depending on uploaded 1C distro version from local repo) from **dockerfiles/**
+*(Beginning with 8.3.20, 1C packages comes with .run installer: correct Dockerfile is run.Dockerfile)*
 > cp -f dockerfiles/deb.Dockerfile Dockerfile
 
 2. Edit .env file
