@@ -10,7 +10,7 @@ Build 1C server image:
 *(Beginning with 8.3.20, 1C packages comes with .run installer: correct Dockerfile is run.Dockerfile)*
 > cp -f dockerfiles/deb.Dockerfile Dockerfile
 
-2. Edit .env file
+2. Edit build.sh file (set correct version of 1C)
 
 3. Run script from 1c-server folder:
 > sudo bash 1c-server/build.sh
