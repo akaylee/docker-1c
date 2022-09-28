@@ -4,19 +4,19 @@ Original repo: https://github.com/alexanderfefelov/docker-1c-server
 
 *with some insertions (images are being pushed/pulled using local Docker registry)*
 
-Build 1C server image:
+1. Download 1C distribution (Linux, 64-bit version) to your file server via SFTP (Dockerfile uses *wget* to pull it, correct IP address accordingly)
 
-1. Copy and rename correct Dockerfile (depending on uploaded 1C distro version from local repo) from **dockerfiles/**.
+2. Copy and rename correct Dockerfile (depending on uploaded 1C distro version from local repo) from **dockerfiles/**.
 
-*beginning with 8.3.20, 1C packages come with .run installer: correct Dockerfile is run.Dockerfile*
+*starting with version 8.3.20, 1C packages come with .run installer: correct Dockerfile is run.Dockerfile*
 > cp -f dockerfiles/deb.Dockerfile Dockerfile
 
-2. Edit build.sh file (set correct version of 1C)
+3. Edit build.sh file (set correct version of 1C)
 
-3. Run script from 1c-server folder:
+4. Run script from 1c-server folder:
 > sudo bash 1c-server/build.sh
 
-4. Run docker compose
+5. Run docker compose
 > sudo docker-compose up -d
 
 
